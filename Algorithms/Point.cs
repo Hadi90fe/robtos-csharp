@@ -11,6 +11,10 @@ class Point
         this.y = y;
     }
 
+    public Point(){
+        Point(0, 0);
+    }
+
     public double X()
     {
         return x;
@@ -24,6 +28,13 @@ class Point
     public double Distance()
     {
         return Math.Sqrt(X() * X() + Y() * Y());
+    }
+
+    public Point MidPointOf(Point other)
+    {
+        double midX = (X() + other.X()) / 2;
+        double midY = (Y() + other.Y()) / 2;
+        return new Point(midX, midY);
     }
 
 }
