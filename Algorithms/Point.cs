@@ -11,10 +11,6 @@ class Point
         this.y = y;
     }
 
-    public Point(){
-        Point(0, 0);
-    }
-
     public double X()
     {
         return x;
