@@ -1,8 +1,8 @@
 {
     "dotnet.defaultSolution": "FirstProject.sln",
-    "editor.fontSize": 24,
+    "editor.fontSize": 12,
     "window.zoomLevel": 1,
-    "terminal.integrated.fontSize": 24,
+    "terminal.integrated.fontSize": 12,
     "workbench.tree.indent": 23
 
 }
