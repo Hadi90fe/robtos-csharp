@@ -10,13 +10,8 @@ class EntryPoint
 
     public static void Main(String[] args)
     {
-
-
-        IntChainLink lastLink = new IntChainLink(3);
-        IntChainLink secondLink = new IntChainLink(2, lastLink);
-        IntChainLink firstLink = new IntChainLink(1, secondLink);
-        Console.WriteLine(firstLink.Head()); // 1
-        Console.WriteLine(firstLink.Rest().Head()); // 2
-        Console.WriteLine(firstLink.Rest().Rest().Head()); // 3
+        SierpinskiTriangle st = new SierpinskiTriangle(new Random(666));
+        string vegaLite = st.GenerateVegaLiteSpec(new Point(2, 3), 2000);
+        Console.WriteLine(vegaLite);
     }
 }

@@ -1,5 +1,7 @@
 namespace Algorithms;
 using System;
+using System.Globalization;
+
 public class Point
 {
     private double x;
@@ -41,7 +43,11 @@ public class Point
     }
 
     public override string ToString(){
-        return "{\"x\": " + this.x + ", \"y\": " + this.y + "}";
+        return "{\"x\": " 
+        + this.x.ToString(CultureInfo.InvariantCulture) 
+        + ", \"y\": " 
+        + this.y.ToString(CultureInfo.InvariantCulture)
+        + "}";
     }
 
 }

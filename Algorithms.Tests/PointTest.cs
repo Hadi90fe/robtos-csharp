@@ -9,6 +9,9 @@ public class PointTest
     {
         Point point = new Point(0, 1);
         Assert.AreEqual("{\"x\": 0, \"y\": 1}", point.ToString());
+
+        point = new Point(0, 1.5);
+        Assert.AreEqual("{\"x\": 0, \"y\": 1.5}", point.ToString());
     }
 
     [TestMethod]
