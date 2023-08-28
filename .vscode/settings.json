@@ -3,6 +3,8 @@
     "editor.fontSize": 22,
     "window.zoomLevel": 1,
     "terminal.integrated.fontSize": 22,
-    "workbench.tree.indent": 23
+    "workbench.tree.indent": 23,
+    "debug.console.fontSize": 22,
+
 
 }

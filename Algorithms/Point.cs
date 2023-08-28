@@ -1,6 +1,6 @@
 namespace Algorithms;
 using System;
-class Point
+public class Point
 {
     private double x;
     private double y;
@@ -26,11 +26,22 @@ class Point
         return Math.Sqrt(X() * X() + Y() * Y());
     }
 
+    public double Distance(Point other)
+    {
+        double xDiff = X() - other.X();
+        double yDiff = Y() - other.Y();
+        return Math.Sqrt(xDiff * xDiff + yDiff*yDiff);
+    }
+
     public Point MidPointOf(Point other)
     {
         double midX = (X() + other.X()) / 2;
         double midY = (Y() + other.Y()) / 2;
         return new Point(midX, midY);
+    }
+
+    public override string ToString(){
+        return "{\"x\": " + this.x + ", \"y\": " + this.y + "}";
     }
 
 }

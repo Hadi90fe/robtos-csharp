@@ -1,5 +1,5 @@
 namespace Algorithms;
-internal class Triangle
+public class Triangle
 
 {
 
@@ -7,7 +7,25 @@ internal class Triangle
     private Point sommet2;
     private Point sommet3;
 
- 
+    public Point Vertex1 { get {return sommet1;}}
+    public Point Vertex2 { get {return sommet2;}}
+    public Point Vertex3 { get {return sommet3;}}
+
+    public Point GetVertexById(int id){
+        if(id == 0){
+            return Vertex1;
+        }
+        if(id == 1){
+            return Vertex2;
+        }
+        return Vertex3;
+    }
+
+
+    public Point RandomSummit(Random random){
+        int id = random.Next(3);
+        return GetVertexById(id);
+    }
 
     public Triangle(Point sommet1,Point sommet2,Point sommet3)
     {
