@@ -24,9 +24,9 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult SierpinskiTriangle(){
+    public IActionResult SierpinskiTriangle(int n){
         SierpinskiTriangle st = new SierpinskiTriangle(new Random(777));
-        ViewData["spec"] = st.GenerateVegaLiteSpec(new Point(3, 4), 10000);
+        ViewData["spec"] = st.GenerateVegaLiteSpec(new Point(3, 4), n);
         return View();
     }
 
