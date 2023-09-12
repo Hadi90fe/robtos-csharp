@@ -53,6 +53,19 @@ public class RobotController : Controller
         return RedirectToAction("Index", "Home");
     }
 
+    // POST: /Robot/AddRandom
+    [HttpPost]
+    public IActionResult AddRandom()
+    {
+        // Process the form data here
+        addRobotService.GetRobotByNameWithRandomInfos(null);
+        // Return JSON or any response as needed
+        // return Json(new { success = true, message = "Robot Deleted successfully" });
+        ViewData["message"] = "Robot Deleted successfully";
+        return RedirectToAction("Index", "Home");
+    }
+
+
     // POST: /Robot/Remove
     [HttpPost]
     public IActionResult Remove(int id)

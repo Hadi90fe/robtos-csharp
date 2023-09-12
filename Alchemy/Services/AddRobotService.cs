@@ -36,13 +36,13 @@ public class AddRobotService: IAddRobotService
     }
 
     // a mthode to return a random element in the list
-    public  string RandomFromList(List<string> mylist)
+    public string RandomFromList(List<string> mylist)
     {
         return mylist[new Random().Next(0, mylist.Count)];
     }
 
     // a mthode to generate a random robot with random infos
-    public  Robot? GetRobotByNameWithRandomInfos(string? Name)
+    public  Robot GetRobotByNameWithRandomInfos(string? Name)
     {
         List<string> names = new List<string>
         {
@@ -281,6 +281,8 @@ public class AddRobotService: IAddRobotService
         string randomName = Name ?? RandomFromList(names);
         string rndmPoids = new Random().Next(1, 25).ToString();
         string randomCountry = RandomFromList(countries);
-        return new Robot(id, randomName, rndmPoids, randomCountry);
+        Robot robot = new(id, randomName, rndmPoids, randomCountry);
+        dataBase[id] = robot;
+        return robot;
     }
 }
