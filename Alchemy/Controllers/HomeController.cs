@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Alchemy.Models;
 using System.Reflection.Metadata.Ecma335;
 using Alchemy.Services;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+
 
 namespace Alchemy.Controllers;
+
 
 public class HomeController : Controller
 {
@@ -18,8 +21,6 @@ public class HomeController : Controller
     }
 
 
-
-
     public IActionResult Index()
     {
         ViewData["robots"] = addRobotService.ListRobots();
@@ -27,32 +28,8 @@ public class HomeController : Controller
     }
     public IActionResult AddRobot()
     {
-        return View("AddRobot");
-    }
-    public IActionResult Bob()
-    {
-        Robot? robotBob = GetRobotByName("Bob");
-        ViewData["robot"] = robotBob;
 
-        return View("Robot");
-    }
-    public IActionResult Alice()
-    {
-        Robot? robotAlice = GetRobotByName("Alice");
-        ViewData["robot"] = robotAlice;
-        return View("Robot");
-    }
-    public IActionResult Audrei()
-    {
-        Robot? robotAudrei = GetRobotByName("Audrei");
-        ViewData["robot"] = robotAudrei;
-        return View("Robot");
-    }
-    public IActionResult Random()
-    {
-        Robot? randomRobot = Robot.GetRobotByNameWithRandomInfos(null);
-        ViewData["robot"] = randomRobot;
-        return View("Robot");
+        return View("AddRobot");
     }
 
     public IActionResult Privacy()

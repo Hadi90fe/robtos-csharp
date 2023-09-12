@@ -1,49 +1,53 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Alchemy</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Alchemy.styles.css" asp-append-version="true" />
+    @* CDN to use HTMX *@
+    @* <script src="https://unpkg.com/htmx.org@1.9.5" `
+        integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
+        crossorigin="anonymous"></script> *@
 </head>
+
 <body>
     <div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="fs-5 d-none d-sm-inline">Robot</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home" asp-action="Bob"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Bob</span></a>
-
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home" asp-action="Alice"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Alice</span></a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home" asp-action="Audrei"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Audrei</span></a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home" asp-action="Random"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Random Robot</span></a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home" asp-action="AddRobot"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Ajouter un Robot</span></a>
-                    </li>
-                </ul>
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto gap-2 text-white text-decoration-none"
+                        asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fs-4 bi-robot"></i>
+                        <span class="fs-5 d-none d-sm-inline"> Robot</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="Index"><i class="fs-4 bi-list"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Lister les Robots</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="AddRobot"><i class="fs-4 bi-plus"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Ajouter un Robot</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col py-3">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
             </div>
         </div>
-        <div class="col py-3">
-            <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-        </div>
     </div>
-</div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -54,4 +58,5 @@
         </div>
     </footer>
 </body>
+
 </html>

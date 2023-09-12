@@ -3,24 +3,35 @@
     List<Robot>? robots = ViewData["robots"] as List<Robot>;
 }
 <h1>@ViewData["Title"]</h1>
-
 <p>Use this page to detail your site's privacy policy.</p>
-<div class="container main-robot-page">
-        <div class="row">
-@foreach (Robot robot in robots)
+@if (robots.Count > 0)
 {
+    <div class="container main-robot-page">
+        <div class="row">
+            @foreach (Robot robot in robots)
+            {
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="@robot.Link()" class="card-img-top" alt="Animal Image">
-                    <h1>WANTED</h1>
-                    <div class="card-body">
-                        <h5 class="card-title">@robot.nom</h5>
-                        <p class="card-text">Poids: @robot.poids</p>
-                        <p class="card-text">Pays: @robot.pays</p>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="@robot.Link()" class="card-img-top" alt="Animal Image">
+                        <h1>WANTED</h1>
+                        <div class="card-body">
+                            <h5 class="card-title">@robot.nom</h5>
+                            <p class="card-text">Poids: @robot.poids</p>
+                            <p class="card-text">Pays: @robot.pays</p>
+                            <form action="/Robot/Remove?id=@robot.id" method=POST enctype="application/json">
+                                <button type="submit" class="btn btn-primary">Supprimer</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-}
-   </div>
+            }
+        </div>
     </div>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        There is no robots start adding one <a href="/Home/AddRobot">here !</a>
+    </div>
+}

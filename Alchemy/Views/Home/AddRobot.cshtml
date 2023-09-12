@@ -206,24 +206,33 @@
         <h2>@ViewData["Title"]</h2>
         <p>@ViewData["desc"]</p>
     </div>
-    <form method=POST action="/">
+    <form action="/Robot/Add" method=POST enctype="application/json">
         <div class="form-group mb-2">
             <label for="robotName">Nom:</label>
-            <input type="text" class="form-control mt-1" id="robotName" placeholder="Entrer le Nom" required>
+            <input type="text" class="form-control mt-1" id="robotName" placeholder="Entrer le Nom" name="nom" required>
         </div>
         <div class="form-group mb-2">
             <label for="robotWeight">Poids (en kg):</label>
-            <input type="number" class="form-control mt-1" id="robotWeight" placeholder="Entrer le Poids" required>
+            <input type="number" class="form-control mt-1" id="robotWeight" name="poids" placeholder="Entrer le Poids"
+                required>
         </div>
         <div class="form-group mb-3">
             <label for="robotCountry">Pays:</label>
-            <select class="form-control mt-1" id="robotCountry" required>
+            <select class="form-control mt-1" id="robotCountry" name="pays" required>
                 <option value="">Selectionner un Pays</option>
-                @foreach(string p in pays){
-                <option value=@p>@p</option>
+                @foreach (string p in pays)
+                {
+                    <option value=@p>@p</option>
                 }
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
+    <br />
+    @if (ViewData["message"] != null)
+    {
+        <div class="alert alert-warning" role="alert">
+            @ViewData["message"]
+        </div>
+    }
 </div>
