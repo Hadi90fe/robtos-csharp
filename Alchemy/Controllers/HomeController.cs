@@ -2,43 +2,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Alchemy.Models;
 using System.Reflection.Metadata.Ecma335;
+using Alchemy.Services;
 
 namespace Alchemy.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    List<Robot> robots;
+    private IAddRobotService addRobotService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IAddRobotService addRobotService)
     {
         _logger = logger;
-        robots = new List<Robot>();
-        robots.Add(new Robot("Bob", "35", "Gabon"));
-        robots.Add(new Robot("Alice", "25", "Canada"));
-        robots.Add(new Robot("Audrei", "35", "Algerie"));
-        robots.Add(Robot.GetRobotByNameWithRandomInfos(null));
+        this.addRobotService = addRobotService;
     }
 
-    public Robot? GetRobotByName(string Name)
-    {
-        foreach (Robot r in robots)
-        {
-            if (r.nom == Name)
-            {
-                return r;
-            }
-
-        };
-        // If no robot with the given name is found, return null
-        return null;
-    }
 
 
 
     public IActionResult Index()
     {
-        ViewData["robots"] = robots;
+        ViewData["robots"] = addRobotService.ListRobots();
         return View("Index");
     }
     public IActionResult AddRobot()
